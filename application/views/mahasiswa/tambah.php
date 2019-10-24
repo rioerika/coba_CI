@@ -19,27 +19,24 @@
         <div class="col-6">
           <h3>Form Tambah Data Mahasiswa</h3>
 
-          <?php if (validation_errors() ) : ?>
-          <div class="alert alert-danger" role="alert">
-            <?= validation_errors(); ?>
-          </div>
-          
-          <?php endif;?>
+        
           <form method="post" action="<?= base_url('mahasiswa/tambah'); ?>">
               <div class="form-group">
                 <label for="NAMA">NAMA</label>
                 <input type="text" class="form-control" id="NAMA" name="NAMA">
-                <?= form_error('NAMA'); ?>
+                <small id="emailHelp" class="form-text text-danger"><?= form_error('NAMA'); ?></small>
               </div>
 
               <div class="form-group">
                 <label for="NRP">NRP</label>
                 <input type="text" class="form-control" id="NRP" name="NRP">
+                <small id="emailHelp" class="form-text text-danger"><?= form_error('NRP'); ?></small>
               </div>
 
               <div class="form-group">
                 <label for="EMAIL">EMAIL</label>
                 <input type="text" class="form-control" id="EMAIL" name="EMAIL">
+                <small id="emailHelp" class="form-text text-danger"><?= form_error('EMAIL'); ?></small>
               </div>
 
               <div class="form-group">
