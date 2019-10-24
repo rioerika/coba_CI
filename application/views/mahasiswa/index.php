@@ -53,7 +53,8 @@
                     <td><?= $mhs['EMAIL']; ?></td>
                     <td><?= $mhs['JURUSAN']; ?></td>
                     <td>
-                      <a href="" class="badge badge-success">Ubah</a>
+                      <a href="<?= base_url(); ?>mahasiswa/detail/<?= $mhs['No']; ?>" class="badge badge-primary">Detail</a>
+                      <a href="<?= base_url(); ?>mahasiswa/ubah/<?= $mhs['No']; ?>" class="badge badge-success">Ubah</a>
                       <a href="<?= base_url(); ?>mahasiswa/hapus/<?= $mhs['No']; ?>" class="badge badge-danger" onclick="return confirm('yakin');">Hapus</a>
                     </td>
                   </tr>
