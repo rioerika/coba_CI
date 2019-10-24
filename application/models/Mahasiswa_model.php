@@ -4,4 +4,16 @@ class Mahasiswa_model extends CI_Model{
 	public function getAllMahasiswa(){
 		return $this->db->get('mahasiswa')->result_array();
 	}
+
+
+	public function tambahDataMhs(){
+			$data = [
+				'NAMA' => $this->input->post('NAMA' , true),
+				'NRP' => $this->input->post('NRP' , true),
+				'EMAIL' => $this->input->post('EMAIL' , true),
+				'JURUSAN' => $this->input->post('JURUSAN', true)
+			];
+
+			$this->db->insert('mahasiswa', $data);
+	}
 }
