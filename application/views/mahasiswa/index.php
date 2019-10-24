@@ -35,6 +35,21 @@
               <?php endif; ?>
 
           <a href="<?= base_url('mahasiswa/tambah'); ?>" class="btn btn-primary mb-3">tambah data</a>
+
+          <div class="row mt-3">
+            <div class="col-md-6">
+              <form action="" method="post">
+                <div class="input-group">
+                  <input type="text" name="" class="form-control" placeholder="Cari Data Mahasiswa...">
+                  <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit"> CARI!</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            
+          </div>
+
             <table class="table col-md-6">
               <thead class="thead-dark">
                 <tr>

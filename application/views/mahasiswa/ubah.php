@@ -20,7 +20,8 @@
           <h3>Form Ubah Data Mahasiswa</h3>
 
         
-          <form method="post" action="<?= base_url('mahasiswa/tambah'); ?>">
+          <form action="" method="post">
+              <input type="hidden" name="No" value="<?= $mahasiswa['No'];  ?>">
               <div class="form-group">
                 <label for="NAMA">NAMA</label> 
                 <input type="text" class="form-control" id="NAMA" name="NAMA" value="<?= $mahasiswa['NAMA'];  ?>">
@@ -36,21 +37,22 @@
 
               <div class="form-group">
                 <label for="EMAIL">EMAIL</label>
-                <input type="text" class="form-control" id="EMAIL" name="EMAIL" value="<?= $mahasiswa['NAMA'];  ?>" >
+                <input type="text" class="form-control" id="EMAIL" name="EMAIL" value="<?= $mahasiswa['EMAIL'];  ?>" >
                 <small id="emailHelp" class="form-text text-danger"><?= form_error('EMAIL'); ?></small>
               </div> 
 
               <div class="form-group">
                 <label for="JURUSAN">Pilih Jurusan</label>
                   <select class="form-control" id="JURUSAN" name="JURUSAN">
-                    <option>Teknik Industri</option>
-                    <option>Teknologi Pangan</option>
-                    <option>Teknik Mesin</option>
-                    <option>Teknik Informatika</option>
-                    <option>Teknik Lingkungan</option>
-                    <option>Teknik Planologi</option>
+                      <?php foreach($jurusan as $j ) : ?>
+                        <?php if($j == $mahasiswa['JURUSAN']): ?>
+                          <option value="<?= $j ?>" selected><?= $j ?></option>
+                        <?php else : ?>
+                          <option value="<?= $j ?>"><?= $j ?></option>
+                        <?php  endif?>
+                      <?php endforeach; ?>
                 </select>
-              </div>
+              </div>  
               <!-- <div class="form-group">
                 <label for="JURUSAN">JURUSAN</label>
                 <input type="text" class="form-control" id="JURUSAN" name="JURUSAN">
