@@ -5,7 +5,7 @@ class Mahasiswa extends CI_Controller {
 	public function index()
 	{
 		$this->load->model('Mahasiswa_model'); //mhs adalah nama lain
-		$data['mahasiswa'] = $this->Mahasiswa_model->getAllMahasiswa();
+		$data['mahasiswa']  = $this->Mahasiswa_model->getAllMahasiswa();
 		$this->load->view('mahasiswa/index', $data);
 	}
 
@@ -33,6 +33,12 @@ class Mahasiswa extends CI_Controller {
 		$this->Mahasiswa_model->hapusDataMhs($No);	
 		$this->session->set_flashdata('flash', 'Dihapus');
 		redirect('mahasiswa');
+	}
+
+	public function detail($No){
+		$data['judul'] = 'Detail Data Mahasiswa';
+		$this->load->view('mahasiswa/index', $data);
+		this->load->view('mahasiswa/detail' , $data);
 	}
 
 }
