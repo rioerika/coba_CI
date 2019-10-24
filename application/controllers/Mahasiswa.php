@@ -20,14 +20,6 @@ class Mahasiswa extends CI_Controller {
 		if ($this->form_validation->run() === false) {
 			$this->load->view('mahasiswa/tambah');
 		}else{
-			// $data = [
-			// 	'NAMA' => $this->input->post('NAMA' , true),
-			// 	'NRP' => $this->input->post('NRP' , true),
-			// 	'EMAIL' => $this->input->post('EMAIL' , true),
-			// 	'JURUSAN' => $this->input->post('JURUSAN', true)
-			// ];
-
-			// $this->db->insert('mahasiswa', $data);
 			$this->Mahasiswa_model->tambahDataMhs();
 			$this->session->set_flashdata('flash', 'Ditambahkan');
 			redirect('mahasiswa');
@@ -36,8 +28,11 @@ class Mahasiswa extends CI_Controller {
 
 	}
 
-	public function hapus(){
-		$this->db->delete('mahasiswa', array('No' => $No));
+	public function hapus($No){
+		$this->load->model('Mahasiswa_model');
+		$this->Mahasiswa_model->hapusDataMhs($No);	
+		$this->session->set_flashdata('flash', 'Dihapus');
+		redirect('mahasiswa');
 	}
 
 }

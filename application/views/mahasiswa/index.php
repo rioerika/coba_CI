@@ -12,23 +12,24 @@
     <title>Data Mahasiswa</title>
   </head>
   <body>
-    <div class="container">
-    <?php if ($this->session->flashdata('flash') ) : ?>
-      <div class="row mt-3">
-        <div class="col-md-6">
-          <div class="alert alert-success alert-dismissible fade show" role="alert">
-            Data Mahasiswa<strong> Berhasil</strong> ditambahkan.
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    <?php endif; ?>
 
+    <div class="container">
       <div class="row">
         <div class="col">
           <h3>Daftar Mahasiswa</h3>
+              
+              <?php if ($this->session->flashdata('flash') ) : ?>
+                <div class="row mt-3">
+                  <div class="col-md-6">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                      Data Mahasiswa<strong> Berhasil</strong> <?= $this->session->flashdata('flash');  ?>.
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              <?php endif; ?>
 
           <a href="<?= base_url('mahasiswa/tambah'); ?>" class="btn btn-primary mb-3">tambah data</a>
             <table class="table">
@@ -53,7 +54,7 @@
                     <td><?= $mhs['JURUSAN']; ?></td>
                     <td>
                       <a href="" class="badge badge-success">Ubah</a>
-                      <a href="<?= base_url(); ?>mahasiswa/hapus/<?= $mhs['No']; ?>" class="badge badge-danger">Hapus</a>
+                      <a href="<?= base_url(); ?>mahasiswa/hapus/<?= $mhs['No']; ?>" class="badge badge-danger" onclick="return confirm('yakin');">Hapus</a>
                     </td>
                   </tr>
                 <?php endforeach; ?>

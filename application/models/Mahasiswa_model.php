@@ -16,4 +16,9 @@ class Mahasiswa_model extends CI_Model{
 
 			$this->db->insert('mahasiswa', $data);
 	}
+
+	public function hapusDataMhs($No){
+		$this->db->where('No', $No);
+		$this->db->delete('mahasiswa');
+	}
 }
