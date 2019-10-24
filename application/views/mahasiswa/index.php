@@ -35,14 +35,12 @@
               <?php endif; ?>
 
           <a href="<?= base_url('mahasiswa/tambah'); ?>" class="btn btn-primary mb-3">tambah data</a>
-            <table class="table">
+            <table class="table col-md-6">
               <thead class="thead-dark">
                 <tr>
                   <th scope="col">No.</th>
-                  <th scope="col">Nama</th>
                   <th scope="col">Nrp</th>
-                  <th scope="col">Email</th>
-                  <th scope="col">Jurusan</th>
+                  <th scope="col">Nama</th>
                   <th scope="col">Aksi</th>
                 </tr>
               </thead>
@@ -53,8 +51,6 @@
                     <th scope="row"><?= $i++; ?></th>
                     <td><?= $mhs['NRP']; ?></td>
                     <td><?= $mhs['NAMA']; ?></td>
-                    <td><?= $mhs['EMAIL']; ?></td>
-                    <td><?= $mhs['JURUSAN']; ?></td>
                     <td>
                       <a href="<?= base_url(); ?>mahasiswa/detail/<?= $mhs['No']; ?>" class="badge badge-primary">Detail</a>
                       <a href="<?= base_url(); ?>mahasiswa/ubah/<?= $mhs['No']; ?>" class="badge badge-success">Ubah</a>

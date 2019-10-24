@@ -36,9 +36,10 @@ class Mahasiswa extends CI_Controller {
 	}
 
 	public function detail($No){
-		$data['judul'] = 'Detail Data Mahasiswa';
-		$this->load->view('mahasiswa/index', $data);
-		this->load->view('mahasiswa/detail' , $data);
+		$this->load->model('Mahasiswa_model');
+		$data['mahasiswa'] = $this->Mahasiswa_model->getMahasiswaById($No);
+		// $this->load->view('mahasiswa/index', $data) 
+		$this->load->view('mahasiswa/detail' , $data);
 	}
 
 }
